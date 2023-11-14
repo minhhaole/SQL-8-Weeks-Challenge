@@ -22,7 +22,7 @@ SELECT customer_id, COUNT(DISTINCT order_date) AS nb_day
 FROM dannys_diner.sales
 GROUP BY customer_id
 ORDER BY customer_id;
-
+```
 -- 3. What was the first item from the menu purchased by each customer?
 ``` sql
 -- Less effective alternative
