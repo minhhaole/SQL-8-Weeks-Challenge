@@ -25,11 +25,7 @@ ORDER BY customer_id;
 
 -- 3. What was the first item from the menu purchased by each customer?
 ``` sql
-/* 
-first item: based on 1st and earliest
-each customer: group by customer_id
-join sales and menu to get the full name of the product 
-*/
+-- Less effective alternative
 /* SELECT sales.customer_id, sales.order_date, menu.product_name
 FROM dannys_diner.sales
 INNER JOIN dannys_diner.menu ON sales.product_id = menu.product_id
