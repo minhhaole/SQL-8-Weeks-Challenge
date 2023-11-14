@@ -9,7 +9,7 @@ Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runn
 
 # Questions & Answers
 
--- A. Pizza Metrics
+# A. Pizza Metrics
 -- 1. How many pizzas were ordered?
 ```sql
 SELECT COUNT(pizza_id)
@@ -91,7 +91,7 @@ FROM pizza_runner.customer_orders
 GROUP BY Day_Week
 ORDER BY Day_Week; 
 ```
--- B. Runner and Customer Experience
+# B. Runner and Customer Experience
 -- 1. How many runners signed up for each 1 week period? (i.e. week starts 2021-01-01)
 ```sql
 SELECT 
