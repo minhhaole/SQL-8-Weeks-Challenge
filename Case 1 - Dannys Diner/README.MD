@@ -17,14 +17,14 @@ GROUP BY sales.customer_id
 ORDER BY sales.customer_id ASC;
 ```
 -- 2. How many days has each customer visited the restaurant?
-
+``` sql
 SELECT customer_id, COUNT(DISTINCT order_date) AS nb_day
 FROM dannys_diner.sales
 GROUP BY customer_id
 ORDER BY customer_id;
 
 -- 3. What was the first item from the menu purchased by each customer?
-
+``` sql
 /* 
 first item: based on 1st and earliest
 each customer: group by customer_id
@@ -51,18 +51,18 @@ WITH RankSale AS (
  FROM RankSale
  WHERE RowNumber = 1
  GROUP BY customer_id, product_name;
- 
+ ```
 -- 4. What is the most purchased item on the menu and how many times was it purchased by all customers?
-
+``` sql
 SELECT menu.product_name, COUNT(sales.product_id) AS Total_Purchase
 FROM dannys_diner.menu
 JOIN dannys_diner.sales ON menu.product_id = sales.product_id
 GROUP BY menu.product_name
 ORDER BY Total_Purchase DESC
 LIMIT 1;
-
+```
 -- 5. Which item was the most popular for each customer?
-
+``` sql
 WITH MaxProduct AS (
   SELECT 
   	sales.customer_id,
@@ -80,9 +80,9 @@ SELECT
   Count_Product
 FROM MaxProduct
 WHERE Ranking = 1;
-
+```
 -- 6. Which item was purchased first by the customer after they became a member?
-
+``` sql
 WITH CTE_Purchase AS (
   SELECT 
   	members.customer_id,
@@ -100,9 +100,9 @@ FROM CTE_Purchase
 INNER JOIN dannys_diner.menu ON CTE_Purchase.product_id = menu.product_id
 WHERE Ranking = 1
 ORDER BY customer_id ASC;
-
+```
 -- 7. Which item was purchased just before the customer became a member?
-
+``` sql
 WITH CTE_Purchase AS (
   SELECT 
   	members.customer_id,
@@ -120,9 +120,9 @@ FROM CTE_Purchase
 INNER JOIN dannys_diner.menu ON CTE_Purchase.product_id = menu.product_id
 WHERE Ranking = 1
 ORDER BY customer_id ASC;
-
+```
 -- 8. What is the total items and amount spent for each member before they became a member?
-
+``` sql
 WITH Total_Purchase AS (
   SELECT
     members.customer_id,
@@ -143,9 +143,9 @@ SELECT customer_id, COUNT(product_id) AS Total_Product, SUM(price) AS Total_Pric
 FROM Total_Purchase
 GROUP BY customer_id
 ORDER BY customer_id; 
-
+```
 -- 9.  If each $1 spent equates to 10 points and sushi has a 2x points multiplier - how many points would each customer have?
-
+``` sql
 WITH CTE_Points AS (
 	SELECT
   		menu.product_id,
@@ -162,9 +162,9 @@ INNER JOIN CTE_Points
 WHERE customer_id != 'C'
 GROUP BY customer_id
 ORDER BY customer_id; 
-
+```
 -- 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
-
+``` sql
 /*
 ID all purchases made in January: contains 2021-01 only 
 calculate the total poits
@@ -179,3 +179,4 @@ WHERE sales.customer_id != 'C'
 AND sales.order_date::text LIKE '2021-01%'
 GROUP BY sales.customer_id, menu.price
 ORDER BY sales.customer_id;
+```
