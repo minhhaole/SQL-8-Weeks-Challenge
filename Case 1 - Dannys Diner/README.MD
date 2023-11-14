@@ -32,7 +32,8 @@ INNER JOIN dannys_diner.menu ON sales.product_id = menu.product_id
 GROUP BY customer_id, order_date, menu.product_name
 ORDER BY order_date ASC
 LIMIT 4; */
-
+ ```
+``` sql
 WITH RankSale AS (
   SELECT 
   	sales.customer_id,
