@@ -1,13 +1,13 @@
 # Case 2 - Pizza Runner
 
-# Business Requirement
+## Business Requirement
 
 Danny wants to expand his new Pizza Empire - he was going to Uberize it - and so Pizza Runner was launched!
 Danny started by recruiting “runners” to deliver fresh pizza from Pizza Runner Headquarters.
 
-# Entity Relationship Diagram 
+## Entity Relationship Diagram 
 
-# Questions & Answers
+## Questions & Answers
 
 # A. Pizza Metrics
 -- 1. How many pizzas were ordered?
