@@ -1,12 +1,12 @@
 # Case 1 - Danny's Diner
 
-# Business Requirement
+## Business Requirement
 
 Understand clients' ordering and spending habits at the restaurant to expand the existing customer loyalty program. 
 
-# Entity Relationship Diagram 
+## Entity Relationship Diagram 
 
-# Questions & Answers
+## Questions & Answers
 
 -- 1. What is the total amount each customer spent at the restaurant?
 ``` sql
